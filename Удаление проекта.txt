@@ -1,3 +1,4 @@
 cd C:\Users\artem\OneDrive\Рабочий стол\Мои ЛР\3 Курс\Практика
 git add -A
 git commit -m "ffwf"
+git push praktika master --force - перезапись все репозитории

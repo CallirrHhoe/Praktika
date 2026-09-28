@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "Модули 1.1 Задание 2/1.0.0": {
+        "runtime": {
+          "Модули 1.1 Задание 2.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Модули 1.1 Задание 2/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,15 @@
+C:\Users\artem\source\repos\Модули 1.1 Задание 3\Модули 1.1 Задание 3\bin\Debug\net10.0\Модули 1.1 Задание 3.exe
+C:\Users\artem\source\repos\Модули 1.1 Задание 3\Модули 1.1 Задание 3\bin\Debug\net10.0\Модули 1.1 Задание 3.deps.json
+C:\Users\artem\source\repos\Модули 1.1 Задание 3\Модули 1.1 Задание 3\bin\Debug\net10.0\Модули 1.1 Задание 3.runtimeconfig.json
+C:\Users\artem\source\repos\Модули 1.1 Задание 3\Модули 1.1 Задание 3\bin\Debug\net10.0\Модули 1.1 Задание 3.dll
+C:\Users\artem\source\repos\Модули 1.1 Задание 3\Модули 1.1 Задание 3\bin\Debug\net10.0\Модули 1.1 Задание 3.pdb
+C:\Users\artem\source\repos\Модули 1.1 Задание 3\Модули 1.1 Задание 3\obj\Debug\net10.0\Модули 1.1 Задание 3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\artem\source\repos\Модули 1.1 Задание 3\Модули 1.1 Задание 3\obj\Debug\net10.0\Модули 1.1 Задание 3.AssemblyInfoInputs.cache
+C:\Users\artem\source\repos\Модули 1.1 Задание 3\Модули 1.1 Задание 3\obj\Debug\net10.0\Модули 1.1 Задание 3.AssemblyInfo.cs
+C:\Users\artem\source\repos\Модули 1.1 Задание 3\Модули 1.1 Задание 3\obj\Debug\net10.0\Модули 1.1 Задание 3.csproj.CoreCompileInputs.cache
+C:\Users\artem\source\repos\Модули 1.1 Задание 3\Модули 1.1 Задание 3\obj\Debug\net10.0\Модули 1.1 Задание 3.dll
+C:\Users\artem\source\repos\Модули 1.1 Задание 3\Модули 1.1 Задание 3\obj\Debug\net10.0\refint\Модули 1.1 Задание 3.dll
+C:\Users\artem\source\repos\Модули 1.1 Задание 3\Модули 1.1 Задание 3\obj\Debug\net10.0\Модули 1.1 Задание 3.pdb
+C:\Users\artem\source\repos\Модули 1.1 Задание 3\Модули 1.1 Задание 3\obj\Debug\net10.0\Модули 1.1 Задание 3.genruntimeconfig.cache
+C:\Users\artem\source\repos\Модули 1.1 Задание 3\Модули 1.1 Задание 3\obj\Debug\net10.0\ref\Модули 1.1 Задание 3.dll
+C:\Users\artem\source\repos\Модули 1.1 Задание 3\Модули 1.1 Задание 3\obj\Debug\net10.0\______ 1.D0108D41.Up2Date

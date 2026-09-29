@@ -11,7 +11,6 @@
         {
             int val = rnd.Next(1, 10); 
             if (a + val > maxSum) break;
-
             list.Add(val);
             a += val;
         }

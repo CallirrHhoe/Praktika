@@ -12,7 +12,7 @@
         {
             matrix[i] = new int[n];
             for (int j = 0; j < n; j++) matrix[i][j] = rnd.Next(-50, 51);
-            Console.WriteLine($"{string.Join("\t", matrix[i])}  | Сумма = {matrix[i].Sum()}");
+            Console.WriteLine($"{string.Join("\t", matrix[i])}   Сумма = {matrix[i].Sum()}");
         }
         // Сортировка строк по возрастанию их сумм 
         matrix = matrix.OrderBy(row => row.Sum()).ToArray();

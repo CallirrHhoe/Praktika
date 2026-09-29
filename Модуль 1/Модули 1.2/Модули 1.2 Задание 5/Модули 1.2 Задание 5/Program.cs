@@ -7,7 +7,7 @@
         string alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
         string sogl = "аеёиоуыэюя";
         Random rnd = new Random();
-        char[] bl = new char[k];
+        char[] b = new char[k];
         List<char> a = new List<char>();
         for (int i = 0; i < k; i++)
         {
@@ -16,6 +16,7 @@
             b[i] = ch;
             // подстрока в строке
             if (!sogl.Contains(ch))
+                //новый массив
                 a.Add(ch);
         }
         char[] a = a.ToArray();

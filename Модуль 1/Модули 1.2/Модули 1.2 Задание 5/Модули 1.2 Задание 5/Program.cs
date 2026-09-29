@@ -5,20 +5,21 @@
         Console.Write("Введите размер массива K: ");
         int k = int.Parse(Console.ReadLine());
         string alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
-        string vowels = "аеёиоуыэюя";
+        string sogl = "аеёиоуыэюя";
         Random rnd = new Random();
-        char[] original = new char[k];
-        List<char> consonantsList = new List<char>();
+        char[] bl = new char[k];
+        List<char> a = new List<char>();
         for (int i = 0; i < k; i++)
         {
             char ch = alphabet[rnd.Next(alphabet.Length)];
-            original[i] = ch;
-            // Если буквы нет в строке гласных, добавляем её в список согласных
-            if (!vowels.Contains(ch))
-                consonantsList.Add(ch);
+            // изначальный массив
+            b[i] = ch;
+            // подстрока в строке
+            if (!sogl.Contains(ch))
+                a.Add(ch);
         }
-        char[] consonants = consonantsList.ToArray();
-        Console.WriteLine("\nИсходный массив символов:  " + string.Join(" ", original));
-        Console.WriteLine("Массив только с согласными: " + string.Join(" ", consonants));
+        char[] a = a.ToArray();
+        Console.WriteLine("\nИсходный массив символов:  " + string.Join(" ", b));
+        Console.WriteLine("Массив только с согласными: " + string.Join(" ", a));
     }
 }

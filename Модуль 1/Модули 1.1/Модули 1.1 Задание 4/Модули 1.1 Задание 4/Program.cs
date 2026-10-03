@@ -23,8 +23,8 @@
         }
         if (count > 0)
         {
-            double average = sum / count;
-            Console.WriteLine($"Среднее значение положительных чисел: {average}");
+            double a = sum / count;
+            Console.WriteLine($"Среднее значение положительных чисел: {a}");
         }
         else
         {

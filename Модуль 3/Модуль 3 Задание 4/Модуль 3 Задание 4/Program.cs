@@ -13,6 +13,7 @@ class Program
         foreach (var item in items)
         {
             // Проверяем каждую строку с помощью переданного делегата condition
+            // item - если нету что добавлять
             if (uslovie(item))
             {
                 result.Add(item); // Если проверка вернула true, добавляем в результат

@@ -2,7 +2,7 @@
 // Нужен для List
 using System.Collections.Generic;
 class Program
-{
+{ 
     // Метод фильтрации принимает список и делегат Predicat
     // Predicate — это стандартный делегат C#, который принимает string и возвращает true или false
     // List<string> items — исходный список строк, который мы фильтруем

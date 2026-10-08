@@ -4,12 +4,12 @@ class Program
     // Объявляем делегат, который представляет собой шаблон метода выполнения задачи
     // Принимает строку название задачи и ничего не возвращает
     delegate void Zadanie(string taskName);
-    // Вариант №1: отправка уведомления
+    //  отправка уведомления
     static void SendNotification(string task)
     {
         Console.WriteLine($"Уведомление: задача \"{task}\" готова!");
     }
-    // Вариант №2: логирование в журнал
+    //  логирование в журнал
     static void LogToFile(string task)
     {
         Console.WriteLine($"Журнал: запись о задаче \"{task}\" добавлена в лог.");

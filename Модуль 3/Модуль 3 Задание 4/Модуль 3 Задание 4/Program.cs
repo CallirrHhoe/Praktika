@@ -48,6 +48,7 @@ class Program
         if (filter != null)
         {
             // Передаем список и делегат в метод Filter
+            // var - неявная типизация
             var filtered = Filter(notes, filter);
             Console.WriteLine("\nРезультаты:");
             foreach (var item in filtered)

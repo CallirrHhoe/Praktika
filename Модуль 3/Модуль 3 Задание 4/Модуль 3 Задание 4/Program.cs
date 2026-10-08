@@ -37,7 +37,7 @@ class Program
         string choice = Console.ReadLine();
         // Объявляем переменную-делегат
         Predicate<string> filter = null;
-        // Присваиваем делегату условие фильтрации в виде лямбда-выражения
+        // Присваиваем делегату условие фильтрации
         if (choice == "1")
             // Возвращает true, если строка содержит слово "Встреча"
             filter = text => text.Contains("Встреча");
@@ -47,7 +47,7 @@ class Program
         // Выполняем фильтрацию, если условие было выбрано
         if (filter != null)
         {
-            // Передаем список и делегат с правилом в метод Filter
+            // Передаем список и делегат в метод Filter
             var filtered = Filter(notes, filter);
             Console.WriteLine("\nРезультаты:");
             foreach (var item in filtered)

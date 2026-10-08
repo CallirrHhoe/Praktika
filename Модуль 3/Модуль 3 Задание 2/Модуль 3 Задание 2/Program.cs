@@ -1,6 +1,6 @@
 ﻿using System;
 class Notification
-{
+{ 
     // Определяем делегат и события для разного типа уведомлений
     public delegate void NotificationI(string message);
     public event NotificationI OnSms;

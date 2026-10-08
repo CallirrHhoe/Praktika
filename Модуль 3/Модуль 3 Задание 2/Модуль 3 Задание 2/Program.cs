@@ -7,7 +7,7 @@ class Notification
     public event NotificationI OnCall;
     public event NotificationI OnEmail;
     //? — операторпроверка на 0. Он проверяет, есть ли хотя бы один подписчик у события
-    //Invoke — метод, который поочередно вызывает все методы-обработчики, подписанные на OnCall
+    //Invoke — метод, который вызывает все методы-обработчики, подписанные на OnCall
     public void SendSms(string text) => OnSms?.Invoke(text);
     public void MakeCall(string number) => OnCall?.Invoke(number);
     public void SendEmail(string mail) => OnEmail?.Invoke(mail);

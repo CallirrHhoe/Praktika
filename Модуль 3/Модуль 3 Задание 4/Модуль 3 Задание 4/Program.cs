@@ -2,7 +2,11 @@
 // Нужен для List
 using System.Collections.Generic;
 class Program
+<<<<<<< HEAD
 {
+=======
+{ 
+>>>>>>> ef9e02fe654f64d0f94ee8bfdaac3f01a06dcbfe
     // Метод фильтрации принимает список и делегат Predicat
     // Predicate — это стандартный делегат C#, который принимает string и возвращает true или false
     // List<string> items — исходный список строк, который мы фильтруем
@@ -12,7 +16,12 @@ class Program
 
         foreach (var item in items)
         {
+<<<<<<< HEAD
             // Проверяем каждую строку с помощью переданного делегата condition
+=======
+            // Проверяем каждую строку с помощью переданного делегата
+            // item - если нету что добавлять
+>>>>>>> ef9e02fe654f64d0f94ee8bfdaac3f01a06dcbfe
             if (uslovie(item))
             {
                 result.Add(item); // Если проверка вернула true, добавляем в результат
@@ -36,7 +45,11 @@ class Program
         string choice = Console.ReadLine();
         // Объявляем переменную-делегат
         Predicate<string> filter = null;
+<<<<<<< HEAD
         // Присваиваем делегату условие фильтрации в виде лямбда-выражения
+=======
+        // Присваиваем делегату условие фильтрации
+>>>>>>> ef9e02fe654f64d0f94ee8bfdaac3f01a06dcbfe
         if (choice == "1")
             // Возвращает true, если строка содержит слово "Встреча"
             filter = text => text.Contains("Встреча");
@@ -46,11 +59,15 @@ class Program
         // Выполняем фильтрацию, если условие было выбрано
         if (filter != null)
         {
+<<<<<<< HEAD
             // Передаем список и делегат с правилом в метод Filter
+=======
+            // Передаем список и делегат в метод Filter
+            // var - неявная типизация
+>>>>>>> ef9e02fe654f64d0f94ee8bfdaac3f01a06dcbfe
             var filtered = Filter(notes, filter);
             Console.WriteLine("\nРезультаты:");
             foreach (var item in filtered)
                 Console.WriteLine($"- {item}");
         }
     }
-}

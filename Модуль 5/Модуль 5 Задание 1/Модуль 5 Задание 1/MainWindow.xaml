@@ -1,0 +1,23 @@
+﻿<Window x:Class="Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Графический редактор WPF" Height="500" Width="800">
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top" Height="40">
+            <RadioButton x:Name="RbLine" Content="Линия" IsChecked="True" Margin="5" VerticalAlignment="Center"/>
+            <RadioButton x:Name="RbCircle" Content="Круг" Margin="5" VerticalAlignment="Center"/>
+            <RadioButton x:Name="RbSquare" Content="Квадрат" Margin="5" VerticalAlignment="Center"/>
+            <Separator/>
+            <TextBlock Text="Цвет:" VerticalAlignment="Center" Margin="5,0"/>
+            <ComboBox x:Name="CbColor" Width="100" SelectedIndex="0" Margin="5">
+                <ComboBoxItem Content="Черный" Tag="Black"/>
+                <ComboBoxItem Content="Красный" Tag="Red"/>
+                <ComboBoxItem Content="Синий" Tag="Blue"/>
+                <ComboBoxItem Content="Зеленый" Tag="Green"/>
+            </ComboBox>
+            <Separator/>
+            <Button Content="Очистить холст" Click="Clear_Click" Margin="5" Padding="5,2"/>
+        </ToolBar>
+        <Canvas x:Name="DrawingCanvas" Background="White" MouseDown="Canvas_MouseDown"/>
+    </DockPanel>
+</Window>

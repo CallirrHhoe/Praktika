@@ -1,0 +1,31 @@
+﻿<Window x:Class="Sotrudnik.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Учет сотрудников" Height="450" Width="700">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="GridSotrudniki" AutoGenerateColumns="True" Margin="0,0,10,0"/>
+
+        <StackPanel Grid.Column="1">
+            <TextBlock Text="ФИО:"/>
+            <TextBox x:Name="TxtName" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Должность:"/>
+            <TextBox x:Name="TxtPost" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Отдел:"/>
+            <TextBox x:Name="TxtDept" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Дата найма:"/>
+            <TextBox x:Name="TxtDate" Margin="0,0,0,15"/>
+
+            <Button Content="Добавить" Click="BtnAdd_Click" Margin="0,0,0,5"/>
+            <Button Content="Изменить" Click="BtnUpdate_Click" Margin="0,0,0,5"/>
+            <Button Content="Удалить" Click="BtnDelete_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

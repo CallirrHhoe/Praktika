@@ -1,0 +1,35 @@
+﻿<Window x:Class="TaskApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Учет задач" Height="450" Width="700">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="GridTasks" AutoGenerateColumns="True" Margin="0,0,10,0"/>
+
+        <StackPanel Grid.Column="1">
+            <TextBlock Text="Название:"/>
+            <TextBox x:Name="TxtTitle" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Описание:"/>
+            <TextBox x:Name="TxtDesc" Height="60" TextWrapping="Wrap" AcceptsReturn="True" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Статус:"/>
+            <ComboBox x:Name="CmbStatus" Margin="0,0,0,10">
+                <ComboBoxItem Content="Новая"/>
+                <ComboBoxItem Content="В процессе"/>
+                <ComboBoxItem Content="Завершена"/>
+            </ComboBox>
+
+            <TextBlock Text="Срок:"/>
+            <TextBox x:Name="TxtDate" Margin="0,0,0,15"/>
+
+            <Button Content="Добавить" Click="BtnAdd_Click" Margin="0,0,0,5"/>
+            <Button Content="Изменить" Click="BtnUpdate_Click" Margin="0,0,0,5"/>
+            <Button Content="Удалить" Click="BtnDelete_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

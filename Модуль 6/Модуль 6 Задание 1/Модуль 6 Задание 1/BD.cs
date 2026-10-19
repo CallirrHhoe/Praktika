@@ -42,7 +42,7 @@ namespace Sotrudnik.Database
                 db.Open();
                 using (var cmd = db.CreateCommand())
                 {
-                    cmd.CommandText = "SELECT Id, Name, Post, Dept, Date FROM Employees";
+                    cmd.CommandText = "SELECT Id, Name, Post, Dept, Date FROM Sotrudniki";
                     using (var rdr = cmd.ExecuteReader())
                     {
                         while (rdr.Read())
@@ -68,7 +68,7 @@ namespace Sotrudnik.Database
                 db.Open();
                 using (var cmd = db.CreateCommand())
                 {
-                    cmd.CommandText = "INSERT INTO Employees (Name, Post, Dept, Date) VALUES (@n, @p, @d, @dt)";
+                    cmd.CommandText = "INSERT INTO Sotrudniki (Name, Post, Dept, Date) VALUES (@n, @p, @d, @dt)";
                     cmd.Parameters.AddWithValue("@n", e.Name);
                     cmd.Parameters.AddWithValue("@p", e.Post ?? "");
                     cmd.Parameters.AddWithValue("@d", e.Dept ?? "");
@@ -84,7 +84,7 @@ namespace Sotrudnik.Database
                 db.Open();
                 using (var cmd = db.CreateCommand())
                 {
-                    cmd.CommandText = "UPDATE Employees SET Name = @n, Post = @p, Dept = @d, Date = @dt WHERE Id = @id";
+                    cmd.CommandText = "UPDATE Sotrudniki SET Name = @n, Post = @p, Dept = @d, Date = @dt WHERE Id = @id";
                     cmd.Parameters.AddWithValue("@id", e.Id);
                     cmd.Parameters.AddWithValue("@n", e.Name);
                     cmd.Parameters.AddWithValue("@p", e.Post ?? "");
@@ -101,7 +101,7 @@ namespace Sotrudnik.Database
                 db.Open();
                 using (var cmd = db.CreateCommand())
                 {
-                    cmd.CommandText = "DELETE FROM Employees WHERE Id = @id";
+                    cmd.CommandText = "DELETE FROM Sotrudniki WHERE Id = @id";
                     cmd.Parameters.AddWithValue("@id", id);
                     cmd.ExecuteNonQuery();
                 }

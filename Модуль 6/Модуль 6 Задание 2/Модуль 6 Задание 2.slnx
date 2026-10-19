@@ -4,7 +4,7 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="Модуль 6 Задание 2/Модуль 6 Задание 2.csproj">
+  <Project Path="Модуль 6 Задание 2/Модуль 6 Задание 2.csproj" Id="9b4c60ef-58e7-47bc-9dfb-ef0c3b6cad32">
     <Platform Solution="*|x64" Project="x64" />
     <Platform Solution="*|x86" Project="x86" />
   </Project>

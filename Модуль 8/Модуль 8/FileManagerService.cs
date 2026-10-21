@@ -1,75 +1,94 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 namespace FileManagerApp
 {
-    // Менеджер файлов
     public class Manager
     {
-        // Получить содержимое папки
-        public IEnumerable<Item> GetDirectoryContents(string path)
+        public IEnumerable<Item> GetContents(string path, string sortBy, bool asc)
         {
             var items = new List<Item>();
             try
             {
-                var dirInfo = new DirectoryInfo(path);
-                foreach (var dir in dirInfo.GetDirectories())
+                var dir = new DirectoryInfo(path);
+                foreach (var d in dir.GetDirectories())
                 {
-                    items.Add(new Item { Name = dir.Name, FullPath = dir.FullName, Type = "Папка", LastModified = dir.LastWriteTime, IsDirectory = true });
+                    items.Add(new Item { Name = d.Name, FullPath = d.FullName, Type = "Папка", Size = 0, FormattedSize = "<ПАПКА>", LastModified = d.LastWriteTime, IsDirectory = true });
                 }
-                foreach (var file in dirInfo.GetFiles())
+                foreach (var f in dir.GetFiles())
                 {
-                    items.Add(new Item { Name = file.Name, FullPath = file.FullName, Type = file.Extension, LastModified = file.LastWriteTime, IsDirectory = false });
+                    items.Add(new Item { Name = f.Name, FullPath = f.FullName, Type = f.Extension, Size = f.Length, FormattedSize = FormatSize(f.Length), LastModified = f.LastWriteTime, IsDirectory = false });
                 }
             }
             catch (UnauthorizedAccessException) { }
-            return items;
+            return Sort(items, sortBy, asc);
         }
-        // Копирование
-        public void CopyItem(string sourcePath, string destPath, bool isDirectory)
+        private string FormatSize(long bytes)
         {
-            if (isDirectory)
+            string[] suffixes = { "б", "КБ", "МБ", "ГБ", "ТБ" };
+            int i = 0;
+            double d = bytes;
+            while (d >= 1024 && i < suffixes.Length - 1)
             {
-                string destDir = Path.Combine(destPath, Path.GetFileName(sourcePath));
-                DirectoryCopy(sourcePath, destDir, true);
+                d /= 1024;
+                i++;
+            }
+            return $"{d:F1} {suffixes[i]}";
+        }
+        public IEnumerable<Item> Sort(List<Item> items, string sortBy, bool asc)
+        {
+            var q = items.OrderBy(x => !x.IsDirectory);
+            if (sortBy == "Size")
+            {
+                return asc ? q.ThenBy(x => x.Size) : q.ThenByDescending(x => x.Size);
+            }
+            if (sortBy == "Date")
+            {
+                return asc ? q.ThenBy(x => x.LastModified) : q.ThenByDescending(x => x.LastModified);
+            }
+            return asc ? q.ThenBy(x => x.Name) : q.ThenByDescending(x => x.Name);
+        }
+        public void Copy(string src, string dstDir, bool isDir)
+        {
+            if (isDir)
+            {
+                string target = Path.Combine(dstDir, Path.GetFileName(src));
+                CopyDir(src, target);
             }
             else
             {
-                string fileName = Path.GetFileName(sourcePath);
-                File.Copy(sourcePath, Path.Combine(destPath, fileName), true);
+                File.Copy(src, Path.Combine(dstDir, Path.GetFileName(src)), true);
             }
         }
-        // Рекурсивное копирование папки
-        private void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)
+        private void CopyDir(string src, string dst)
         {
-            DirectoryInfo dir = new DirectoryInfo(sourceDirName);
-            Directory.CreateDirectory(destDirName);
-            foreach (FileInfo file in dir.GetFiles())
+            Directory.CreateDirectory(dst);
+            foreach (var f in Directory.GetFiles(src))
             {
-                string tempPath = Path.Combine(destDirName, file.Name);
-                file.CopyTo(tempPath, false);
+                File.Copy(f, Path.Combine(dst, Path.GetFileName(f)), true);
             }
-            if (copySubDirs)
+            foreach (var d in Directory.GetDirectories(src))
             {
-                foreach (DirectoryInfo subdir in dir.GetDirectories())
-                {
-                    string tempPath = Path.Combine(destDirName, subdir.Name);
-                    DirectoryCopy(subdir.FullName, tempPath, copySubDirs);
-                }
+                CopyDir(d, Path.Combine(dst, Path.GetFileName(d)));
             }
         }
-        // Перемещение
-        public void MoveItem(string sourcePath, string destPath, bool isDirectory)
+        public void Move(string src, string dstDir, bool isDir)
         {
-            string fileName = Path.GetFileName(sourcePath);
-            string targetPath = Path.Combine(destPath, fileName);
-            if (isDirectory) Directory.Move(sourcePath, targetPath);
-            else File.Move(sourcePath, targetPath);
+            string target = Path.Combine(dstDir, Path.GetFileName(src));
+            if (isDir)
+            {
+                Directory.Move(src, target);
+            }
+            else
+            {
+                if (File.Exists(target)) File.Delete(target);
+                File.Move(src, target);
+            }
         }
-        // Удаление
-        public void DeleteItem(string path, bool isDirectory)
+        public void Delete(string path, bool isDir)
         {
-            if (isDirectory) Directory.Delete(path, true);
+            if (isDir) Directory.Delete(path, true);
             else File.Delete(path);
         }
     }

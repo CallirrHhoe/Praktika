@@ -1,0 +1,61 @@
+﻿<Window x:Class="ProjectTaskApp.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Управление задачами проекта" Height="500" Width="750">
+    <Grid Margin="10">
+        <TabControl>
+            <TabItem Header="Проекты">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,5">
+                        <TextBox x:Name="TxtProj" Width="200" Margin="0,0,5,0"/>
+                        <Button Content="Добавить" Click="AddProj_Click" Width="80" Margin="0,0,5,0"/>
+                        <Button Content="Удалить" Click="DelProj_Click" Width="80"/>
+                    </StackPanel>
+                    <DataGrid x:Name="DgProjects" Grid.Row="1" AutoGenerateColumns="True"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Сотрудники">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,5">
+                        <TextBox x:Name="TxtEmp" Width="200" Margin="0,0,5,0"/>
+                        <Button Content="Добавить" Click="AddEmp_Click" Width="80" Margin="0,0,5,0"/>
+                        <Button Content="Удалить" Click="DelEmp_Click" Width="80"/>
+                    </StackPanel>
+                    <DataGrid x:Name="DgEmployees" Grid.Row="1" AutoGenerateColumns="True"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Задачи">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,5">
+                        <TextBox x:Name="TxtTask" Width="110" Margin="0,0,5,0"/>
+                        <ComboBox x:Name="CmbTaskProj" Width="110" DisplayMemberPath="Название" SelectedValuePath="Номер" Margin="0,0,5,0"/>
+                        <ComboBox x:Name="CmbTaskEmp" Width="110" DisplayMemberPath="ФИО" SelectedValuePath="Номер" Margin="0,0,5,0"/>
+                        <ComboBox x:Name="CmbTaskStatus" Width="90" Margin="0,0,5,0">
+                            <ComboBoxItem Content="Новая" IsSelected="True"/>
+                            <ComboBoxItem Content="В работе"/>
+                            <ComboBoxItem Content="Готово"/>
+                        </ComboBox>
+                        <Button Content="Добавить" Click="AddTask_Click" Width="80" Margin="0,0,5,0"/>
+                        <Button Content="Удалить" Click="DelTask_Click" Width="80"/>
+                    </StackPanel>
+                    <DataGrid x:Name="DgTasks" Grid.Row="1" AutoGenerateColumns="True"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Отчеты">
+                <StackPanel Margin="5">
+                    <Button Content="Сформировать отчет" Click="Report_Click" Height="30" Margin="0,0,0,10"/>
+                    <TextBox x:Name="TxtReport" Height="380" AcceptsReturn="True" IsReadOnly="True"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

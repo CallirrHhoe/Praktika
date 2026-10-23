@@ -3,7 +3,7 @@
     <Platform Name="Any CPU" />
     <Platform Name="x64" />
   </Configurations>
-  <Project Path="Модуль 9 Задание 2/Модуль 9 Задание 2.csproj">
+  <Project Path="Модуль 9 Задание 2/Модуль 9 Задание 2.csproj" Id="d2e8839a-bcdc-410f-a7b0-1b2dac2deb35">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
 </Solution>

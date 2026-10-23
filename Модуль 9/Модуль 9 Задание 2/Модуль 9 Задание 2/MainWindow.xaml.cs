@@ -11,7 +11,6 @@ namespace ProjectTaskApp
         ProjectRepository projects;
         EmployeeRepository employees;
         TaskRepository tasks;
-
         public MainWindow()
         {
             Batteries.Init(); // Инициализация SQLitePCL для загрузки нативных библиотек
@@ -31,7 +30,7 @@ namespace ProjectTaskApp
             CmbTaskProj.ItemsSource = projects.GetAll().DefaultView;
             CmbTaskEmp.ItemsSource = employees.GetAll().DefaultView;
         }
-        // Получение Id выбранной строки в таблице
+        // Получение Id выбранной строки в таблице (-1, если ничего не выбрано)
         int GetSelectedId(DataGrid dg)
         {
             return dg.SelectedItem is DataRowView r ? System.Convert.ToInt32(r["Номер"]) : -1;
@@ -101,7 +100,7 @@ namespace ProjectTaskApp
         private void Report_Click(object sender, RoutedEventArgs e)
         {
             var dt = tasks.GetAll();
-            string report = "ОТЧЕТ О СТАТУСЕ ПРОЕКТОВ И ЗАДАЧ\n\n";
+            string report = "=== ОТЧЕТ О СТАТУСЕ ПРОЕКТОВ И ЗАДАЧ ===\n\n";
             foreach (DataRow row in dt.Rows)
             {
                 report += $"Задача: {row["Задача"]} | Проект: {row["Проект"]} | Исполнитель: {row["Исполнитель"]} | Статус: {row["Статус"]}\n";

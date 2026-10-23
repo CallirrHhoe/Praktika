@@ -6,23 +6,19 @@ namespace ProjectTaskApp
 {
     public partial class MainWindow : Window
     {
-        // Инициализация базы данных и репозиториев
         Database db = new Database("app.db");
         ProjectRepository projects;
         EmployeeRepository employees;
         TaskRepository tasks;
-
         public MainWindow()
         {
-            Batteries.Init(); // Инициализация SQLitePCL для загрузки нативных библиотек
+            Batteries.Init();
             InitializeComponent();
-            // Создание экземпляров репозиториев для работы с таблицами БД
             projects = new ProjectRepository(db);
             employees = new EmployeeRepository(db);
             tasks = new TaskRepository(db);
-            RefreshData(); // Загрузка данных в интерфейс при запуске программы
+            RefreshData();
         }
-        // Метод для обновления всех таблиц и выпадающих списков на форме
         void RefreshData()
         {
             DgProjects.ItemsSource = projects.GetAll().DefaultView;
@@ -31,12 +27,10 @@ namespace ProjectTaskApp
             CmbTaskProj.ItemsSource = projects.GetAll().DefaultView;
             CmbTaskEmp.ItemsSource = employees.GetAll().DefaultView;
         }
-        // Получение Id выбранной строки в таблице
         int GetSelectedId(DataGrid dg)
         {
             return dg.SelectedItem is DataRowView r ? System.Convert.ToInt32(r["Номер"]) : -1;
         }
-        // Обработчик кнопки добавления проекта
         private void AddProj_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(TxtProj.Text))
@@ -46,7 +40,6 @@ namespace ProjectTaskApp
                 RefreshData();
             }
         }
-        // Обработчик кнопки удаления проекта
         private void DelProj_Click(object sender, RoutedEventArgs e)
         {
             int id = GetSelectedId(DgProjects);
@@ -56,7 +49,6 @@ namespace ProjectTaskApp
                 RefreshData();
             }
         }
-        // Обработчик кнопки добавления сотрудника
         private void AddEmp_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(TxtEmp.Text))
@@ -66,7 +58,6 @@ namespace ProjectTaskApp
                 RefreshData();
             }
         }
-        // Обработчик кнопки удаления сотрудника
         private void DelEmp_Click(object sender, RoutedEventArgs e)
         {
             int id = GetSelectedId(DgEmployees);
@@ -76,7 +67,6 @@ namespace ProjectTaskApp
                 RefreshData();
             }
         }
-        // Обработчик кнопки добавления задачи
         private void AddTask_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(TxtTask.Text) && CmbTaskProj.SelectedValue != null && CmbTaskEmp.SelectedValue != null)
@@ -87,7 +77,6 @@ namespace ProjectTaskApp
                 RefreshData();
             }
         }
-        // Обработчик кнопки удаления задачи
         private void DelTask_Click(object sender, RoutedEventArgs e)
         {
             int id = GetSelectedId(DgTasks);
@@ -97,7 +86,6 @@ namespace ProjectTaskApp
                 RefreshData();
             }
         }
-        // Генерация текстового отчета по задачам и вывод в поле отчетов
         private void Report_Click(object sender, RoutedEventArgs e)
         {
             var dt = tasks.GetAll();
